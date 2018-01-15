@@ -2,10 +2,7 @@ package com.explore;
 
 import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by superzhangx on 2018/1/15.
@@ -14,6 +11,7 @@ public class HashMapExplore {
     public static void main(String[] args) {
         //HashMapHashTest();
         HashMapApiExplore();
+        LinkedHashMapExplore();
     }
 
     private static void HashMapApiExplore(){
@@ -62,5 +60,27 @@ public class HashMapExplore {
         // number of collisions (approximately 8 at default load factor).
         h ^= (h >>> 20) ^ (h >>> 12);
         return h ^ (h >>> 7) ^ (h >>> 4);
+    }
+
+    private static void LinkedHashMapExplore(){
+        Random r = new Random();
+        LinkedHashMap map = new LinkedHashMap();
+        map.put("a", r.nextInt(100));
+        map.put("b", r.nextInt(100));
+        map.put("c", r.nextInt(100));
+        map.put("d", r.nextInt(100));
+
+        System.out.println("init map:" + map);
+
+        //Iterator
+        Iterator it = map.entrySet().iterator();
+        while (it.hasNext()){
+            Map.Entry entry = (Map.Entry)it.next();
+            System.out.println("Key:" + entry.getKey() + "  value:" + entry.getValue());
+        }
+
+        //clear()
+        map.clear();
+        System.out.println(map);
     }
 }

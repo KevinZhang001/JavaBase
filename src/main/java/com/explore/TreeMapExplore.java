@@ -17,9 +17,9 @@ public class TreeMapExplore {
         Random r = new Random();
 
         treemap.put(1, r.nextInt(10));
-        treemap.put(2, r.nextInt(10));
         treemap.put(3, r.nextInt(10));
         treemap.put(4, r.nextInt(10));
+        treemap.put(2, r.nextInt(10));
         treemap.put(5, r.nextInt(10));
 
         System.out.printf("%s\n", treemap);
